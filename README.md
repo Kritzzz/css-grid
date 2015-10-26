@@ -8,13 +8,15 @@ With millions of different CSS grids out there, it seems unnecessary and redunda
 
 I wanted a responsive & adaptive grid with the ability to freely change the number of columns and the column gutter as well as to nest the columns without adding extra padding or margin to the element.
 
-The implementation is as simple and basic as possible, the compiled and compressed .css file is just **439 Bytes**.
+The implementation is as simple as possible, the compiled and compressed .css file is just **439 Bytes**.
 
 ## How does it work?
 
 Based on the number of columns and the column-gutter (or margin) specified in *_grid_config.scss*, we calculate the width of a single column:
 
-`$single-column-width: (100% - ($column-margin * ($column-count - 1))) / $column-count;`
+```
+$single-column-width: (100% - ($column-margin * ($column-count - 1))) / $column-count;
+```
 
 Most grid systems just go with `content-width / column-count` to determine the size of a single column. However, that limits us to using a padding to seperate the columns, which in turn can lead to unwanted effects.
 
