@@ -1,0 +1,11 @@
+// Grid variables
+$column-count: 12;
+$column-margin: 1.4%;
+
+// $single-column = (100% – (margin * (#columns – 1))) / #columns
+$single-column-width: (100% - ($column-margin * ($column-count - 1))) / $column-count;
+
+// Calculate $i-th column width
+@function calc-column-width($i) {
+    @return (($single-column-width * $i) + ($column-margin * ($i - 1)));
+}

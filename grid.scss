@@ -1,0 +1,33 @@
+@import 'grid-config';
+
+* {
+	box-sizing: border-box;
+}
+
+.row {
+    &:before,
+    &:after {
+        content: " ";
+        display: table;
+    }
+    &:after {
+    	clear: both;
+    }
+}
+
+[class*='col-'] {
+	position: relative;
+	display: block;
+    float: left;
+}
+
+[class*='col-'] + [class*='col-'] {
+    margin-left: $column-margin;
+}
+
+// Calculate each column width
+@for $i from 1 through $column-count {
+	.col-#{$i} {
+		width: calc-column-width($i);
+	}
+}
