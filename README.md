@@ -8,19 +8,33 @@ With millions of different CSS grids out there, it seems unnecessary and redunda
 
 I wanted a responsive & adaptive grid with the ability to freely change the number of columns and the column gutter as well as to nest the columns without adding extra padding or margin to the element.
 
-The implementation is as simple as possible, the compiled and compressed .css file is just **439 Bytes**.
+The implementation is kept as simple and basic as possible, the compiled and compressed .css file is just **439 Bytes** in size. Nice.
 
 ## How does it work?
 
-Based on the number of columns and the column-gutter (or margin) specified in *_grid_config.scss*, we calculate the width of a single column:
+TL;DR: *math!*
+
+First of all, let's build a formula to determine the total width of our content.
 
 ```
-$single-column-width: (100% - ($column-margin * ($column-count - 1))) / $column-count;
+totalWidth = (|columns| * singleColumnWidth) + (columMargin * (|columns| - 1)))
 ```
 
-Most grid systems just go with `content-width / column-count` to determine the size of a single column. However, that limits us to using a padding to seperate the columns, which in turn can lead to unwanted effects.
+Where `|columns|` is the number of columns. 
 
-Instead, we take the content-width (100%) and substract the margins corresponding to the number of columns and then divide by the amount of columns.
+So the total width of our content is sum of our column-widths plus the margins in between all these columns. Assume you have 12 columns, that leaves you with 11 margins between these columns. So far so good.
+
+But wait. How do we know how wide a single column is exactly, if we're aiming for 100% content-width?
+
+Based on the number of columns and the column-gutter (or margin) specified in *_grid_config.scss*, we calculate the width of a single column like this: 
+
+```
+singleColumnWidth = (totalWidth - (columnMargin * (|columns| - 1))) / |columns|;
+```
+
+Many grid systems just go with `totalWidth / |columns|` to determine the size of a single column. However, that limits us to using a padding to seperate the columns, which in turn can lead to unwanted effects.
+
+Instead, we take the totalWidth (in this case: 100%) and substract the margins corresponding to the number of columns and then divide by the amount of columns.
 
 This leaves us with a width for a single column, which we can then use to calculate the widths of all the other columns:
 
@@ -56,6 +70,8 @@ Do not add more columns to a row than your *column-count*.
 	<div class="col-4">.col-4</div>
 </div>
 ```
+
+The grid supports pixel-based widths too, if you have to use them. Simply change the margin **and** the totalWidth to a pixel value. **Caution:** Nesting columns might not work in some cases if your columns are pixel based. It's best to stick to percentages!
 
 ## Browser support
 
