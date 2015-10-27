@@ -1,7 +1,13 @@
+/**
+*   SCSS Grid
+*
+*   Generated for: 12 columns with a 1.4% margin
+*
+*/
 * { box-sizing: border-box; }
 
-.row:before, .row:after { content: " "; display: table; }
-.row:after { clear: both; }
+.row::before, .row::after { content: " "; display: table; }
+.row::after { clear: both; }
 
 [class*='col-'] { position: relative; display: block; float: left; }
 

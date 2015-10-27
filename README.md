@@ -22,7 +22,7 @@ totalWidth = (|columns| * singleColumnWidth) + (columMargin * (|columns| - 1)))
 
 Where `|columns|` is the number of columns. 
 
-So the total width of our content is sum of our column-widths plus the margins in between all these columns. Assume you have 12 columns, that leaves you with 11 margins between these columns. So far so good.
+So the total width of our content is the sum of our column-widths plus the margins in between all these columns. Assume you have 12 columns, that leaves you with 11 margins between these columns. So far so good.
 
 But wait. How do we know how wide a single column is exactly, if we're aiming for 100% content-width?
 
