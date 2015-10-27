@@ -1,6 +1,6 @@
 // Grid variables
-$column-count: 12;
-$column-margin: 1.4%;
+$column-count: 12 !default;
+$column-margin: 1.4% !default;
 
 // $single-column = (100% – (margin * (#columns – 1))) / #columns
 $single-column-width: (100% - ($column-margin * ($column-count - 1))) / $column-count;
