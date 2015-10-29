@@ -1,6 +1,6 @@
 # SCSS Grid
 
-This SCSS grid is a a simple and flexible grid system. 
+This SCSS grid is a a simple and flexible grid system. The number of columns and their margins is completely up to you. Of course, you can just use the default 12-column layout.
 
 ##### Wait what, another CSS grid?!
 
@@ -65,19 +65,19 @@ If you want to change the margin and/or number of columns, edit the _grid_config
 Always wrap your *.col* classes in a *.row*. 
 Do not add more columns to a row than your *column-count*.
 
-```
-<div class="row">
-	<div class="col-4">.col-4</div>
-	<div class="col-4">.col-4</div>
-	<div class="col-4">.col-4</div>
-</div>
-```
+
+	<div class="row">
+		<div class="col-4">.col-4</div>
+		<div class="col-4">.col-4</div>
+		<div class="col-4">.col-4</div>
+	</div>
+
 
 The grid supports pixel-based widths too, if you have to use them. Simply change the margin **and** the totalWidth to a pixel value. **Caution:** Nesting columns might not work in some cases if your columns are pixel based. It's best to stick to percentages!
 
-### No media queries?
+#### No media queries?
 
-I believe breakpoints should be defined by your content, not by the most popular device or mobile screen-size. That's why no media queries are included to change the layout of the grid. 
+I believe breakpoints should be defined by your content, not by the most popular device or mobile screen-size. That's why no media queries are included to change the layout of the grid. Naturally you are free to create your own media queries to suit your needs.
 
 Further reading: [7 habits of hightly effective media-queries](http://bradfrost.com/blog/post/7-habits-of-highly-effective-media-queries/)
 
@@ -85,7 +85,7 @@ Further reading: [7 habits of hightly effective media-queries](http://bradfrost.
 
 This SCSS grid was tested in Chrome, Safari, Firefox, Opera, IE (+9), MS Edge as well as on the iOS Safari and Android Webbrowser. It's pretty good.
 
-If you worry about the performance of the [class=*'col-'] attribute selector, read [this](http://benfrain.com/css-performance-revisited-selectors-bloat-expensive-styles/).
+If you worry about the performance of the [class=*'col-'] attribute selector, read [this](http://benfrain.com/css-performance-revisited-selectors-bloat-expensive-styles/)
 
 ## License and Credits
 
