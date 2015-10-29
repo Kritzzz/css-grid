@@ -8,7 +8,7 @@ With millions of different CSS grids out there, it seems unnecessary and redunda
 
 I wanted a responsive & adaptive grid with the ability to freely change the number of columns and the column gutter as well as to nest the columns without adding extra padding or margin to the element.
 
-The implementation is kept as simple and basic as possible, the compiled and compressed .css file is just **439 Bytes** in size. Nice.
+The implementation is kept as simple and basic as possible, the compiled and compressed .css file for a 12-column layout is just **447 Bytes** in size. Nice.
 
 ## How does it work?
 
@@ -60,6 +60,8 @@ Thats it. *Science!*
 
 ## Using the grid
 
+If you want to change the margin and/or number of columns, edit the _grid_config.scss file. Do not attempt to change the compiled .css file in any way as it would probably break your grid and make you very unhappy.
+
 Always wrap your *.col* classes in a *.row*. 
 Do not add more columns to a row than your *column-count*.
 
@@ -73,9 +75,17 @@ Do not add more columns to a row than your *column-count*.
 
 The grid supports pixel-based widths too, if you have to use them. Simply change the margin **and** the totalWidth to a pixel value. **Caution:** Nesting columns might not work in some cases if your columns are pixel based. It's best to stick to percentages!
 
-## Browser support
+### No media queries?
+
+I believe breakpoints should be defined by your content, not by the most popular device or mobile screen-size. That's why no media queries are included to change the layout of the grid. 
+
+Further reading: [7 habits of hightly effective media-queries](http://bradfrost.com/blog/post/7-habits-of-highly-effective-media-queries/)
+
+## Browser support & performance
 
 This SCSS grid was tested in Chrome, Safari, Firefox, Opera, IE (+9), MS Edge as well as on the iOS Safari and Android Webbrowser. It's pretty good.
+
+If you worry about the performance of the [class=*'col-'] attribute selector, read [this](http://benfrain.com/css-performance-revisited-selectors-bloat-expensive-styles/).
 
 ## License and Credits
 
