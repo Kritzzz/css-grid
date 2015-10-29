@@ -7,7 +7,9 @@
 *
 */
 
-* {
+// Set box-sizing of row and columns to border-box
+
+.row, [class*='col-'] {
     box-sizing: border-box;
 }
 
@@ -24,16 +26,16 @@
     }
 }
 
+// Float the columns and add margin to the ones that have a predecessor.
+
 [class*='col-'] {
+
     position: relative;
-    display: block;
     float: left;
-}
 
-// Only add margin to columns that have a predecessor. (Not the first one!)
-
-[class*='col-'] + [class*='col-'] {
-    margin-left: $column-margin;
+    + [class*='col-'] {
+        margin-left: $column-margin;
+    }
 }
 
 // Calculate each column width

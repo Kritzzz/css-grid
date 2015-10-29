@@ -4,13 +4,12 @@
 *   Generated for: 12 columns with a 1.4% margin
 *
 */
-* { box-sizing: border-box; }
+.row, [class*='col-'] { box-sizing: border-box; }
 
 .row::before, .row::after { content: " "; display: table; }
 .row::after { clear: both; }
 
-[class*='col-'] { position: relative; display: block; float: left; }
-
+[class*='col-'] { position: relative; float: left; }
 [class*='col-'] + [class*='col-'] { margin-left: 1.4%; }
 
 .col-1 { width: 7.05%; }
